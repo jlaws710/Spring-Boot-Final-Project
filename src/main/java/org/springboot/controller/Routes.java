@@ -3,10 +3,8 @@ package org.springboot.controller;
 import org.springboot.models.cats;
 import org.springboot.repositories.CatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -15,34 +13,30 @@ import java.util.Optional;
 public class Routes {
     @Autowired
     private CatRepository catRepository;
-    @CrossOrigin(origins = "http://localhost:8000")
+
+               //Retrieves all data
     @GetMapping("/cats")
     public List<cats> list() {
         return catRepository.findAll();
     }
 
-    @CrossOrigin(origins = "*")
+              //Retrieves selected Cat Id
     @GetMapping("/cats/{id}")
     public cats getCatsById(
             @PathVariable(value = "id") int id) {
         return catRepository.findById(id);
     }
-    //@CrossOrigin(origins = "*")
-    @PostMapping("/cats")
-    @ResponseStatus(HttpStatus.CREATED)
-    public cats createCats(
-       @RequestBody cats catsBody) {
-       return catRepository.save(catsBody);
-    }
+    @RequestMapping(method = RequestMethod.POST, value = "/cats")
+    public void createCats(@RequestBody cats catsBody) {catRepository.save((catsBody));}
 
-    //@CrossOrigin(origins = "*")
+             //Delete Method
     @DeleteMapping("/cats/{id}")
     public void deleteCats(
             @PathVariable (value = "id") int id) {
         catRepository.deleteById(id);
     }
 
-    //@CrossOrigin(origins = "*")
+           //Update Method
     @PutMapping("/cats/{id}")
     public ResponseEntity<Object> updateCats(
             @RequestBody cats catsBody,

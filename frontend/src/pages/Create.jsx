@@ -21,7 +21,7 @@ export default function Create() {
 
   const createCat = async (newCat) => {
     try{
-      const res = await fetch(`http://localhost:8000/cats`, {
+      const res = await fetch("http://localhost:8000/cats", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
