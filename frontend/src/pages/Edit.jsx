@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import { useParams, useNavigate, Navigate} from 'react-router-dom';
 import './edit.css'
+
 export default function Edit() {
   let {id} = useParams();
   const navigate = useNavigate();
@@ -52,7 +53,6 @@ export default function Edit() {
   const updateCat = async (catId, updatedCat) => {
     try{
       const res = await fetch(`http://localhost:8000/cats/${catId}`,{
-      //const res = await fetch(`http://localhost:8000/cats/{id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

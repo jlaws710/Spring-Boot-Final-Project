@@ -9,8 +9,7 @@ function Product(){
     const params = useParams()
 
     async function getUser(id) {
-         const response = await fetch(`http://localhost:8000/cats/${id}`)
-        //const response = await fetch(`http://localhost:8000/cats/id`);
+        const response = await fetch(`http://localhost:8000/cats/${id}`)
         const data = await response.json();
 
         setUser(data);

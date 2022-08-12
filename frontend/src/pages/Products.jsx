@@ -11,7 +11,6 @@ function Products(props) {
   
       console.log('Data: ', data);
       const cats = data;
-      //const { cats } = data;
       setCats(cats);
       console.log('Cats: ', cats);
     }

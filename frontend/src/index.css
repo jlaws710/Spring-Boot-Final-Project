@@ -94,6 +94,7 @@ code {
   border-radius: 10px;
   font-size: 0.8rem;
   letter-spacing: 0.1rem;
+    box-shadow: 2px 2px;
 }
  
 .cat-btns{
